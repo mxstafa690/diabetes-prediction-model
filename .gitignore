@@ -1,0 +1,23 @@
+# Virtual environment (never commit this - regenerated from requirements.txt)
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+
+# CatBoost training logs (regenerated on training, not needed for deployment)
+catboost_info/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db

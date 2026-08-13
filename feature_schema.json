@@ -1,0 +1,262 @@
+{
+  "HighBP": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "HighChol": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "CholCheck": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "BMI": {
+    "dtype": "int64",
+    "type": "continuous/wide-range",
+    "min": 12.0,
+    "max": 98.0,
+    "mean": 28.687507081412274,
+    "std": 6.789204221543287,
+    "has_nulls": false
+  },
+  "Stroke": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "HvyAlcoholConsump": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "GenHlth": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "has_nulls": false
+  },
+  "MentHlth": {
+    "dtype": "int64",
+    "type": "continuous/wide-range",
+    "min": 0.0,
+    "max": 30.0,
+    "mean": 3.5098660414687504,
+    "std": 7.717643069178909,
+    "has_nulls": false
+  },
+  "PhysHlth": {
+    "dtype": "int64",
+    "type": "continuous/wide-range",
+    "min": 0.0,
+    "max": 30.0,
+    "mean": 4.681218787313595,
+    "std": 9.050877330337046,
+    "has_nulls": false
+  },
+  "DiffWalk": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "Sex": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  },
+  "Age": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "has_nulls": false
+  },
+  "Education": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "has_nulls": false
+  },
+  "Income": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "has_nulls": false
+  },
+  "BMI_Category": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "has_nulls": false
+  },
+  "TotalUnhealthyDays": {
+    "dtype": "int64",
+    "type": "continuous/wide-range",
+    "min": 0.0,
+    "max": 60.0,
+    "mean": 8.191084828782346,
+    "std": 13.747948198744238,
+    "has_nulls": false
+  },
+  "CardioRiskScore": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "has_nulls": false
+  },
+  "HealthyLifestyleScore": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "has_nulls": false
+  },
+  "MobilityHealthBurden": {
+    "dtype": "int64",
+    "type": "continuous/wide-range",
+    "min": 1.0,
+    "max": 36.0,
+    "mean": 7.468789492491524,
+    "std": 9.83955447935278,
+    "has_nulls": false
+  },
+  "_raw_columns_needed_for_engineering_only": {
+    "HeartDiseaseorAttack": {
+      "dtype": "int64",
+      "type": "categorical/discrete",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "has_nulls": false
+    },
+    "PhysActivity": {
+      "dtype": "int64",
+      "type": "categorical/discrete",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "has_nulls": false
+    },
+    "Fruits": {
+      "dtype": "int64",
+      "type": "categorical/discrete",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "has_nulls": false
+    },
+    "Veggies": {
+      "dtype": "int64",
+      "type": "categorical/discrete",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "has_nulls": false
+    },
+    "Smoker": {
+      "dtype": "int64",
+      "type": "categorical/discrete",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "has_nulls": false
+    }
+  },
+  "_target": {
+    "dtype": "int64",
+    "type": "categorical/discrete",
+    "allowed_values": [
+      0,
+      1
+    ],
+    "has_nulls": false
+  }
+}
