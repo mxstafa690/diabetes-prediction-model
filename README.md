@@ -19,7 +19,7 @@ The data is heavily imbalanced, which the pipeline handles by undersampling the 
 | File | Purpose |
 |---|---|
 | `diabetes_model_comparison.py` | Benchmarks 5 models over 50 balanced runs and ranks them |
-| `Train_final_model.py` | Trains the winning model and saves the deployed artifacts |
+| `train_final_model.py` | Trains the winning model and saves the deployed artifacts |
 | `main.py` | FastAPI service |
 | `best_diabetes_model_final.pkl` | Trained model (loaded by the API) |
 | `best_threshold_final.pkl` | Tuned decision threshold (0.40) |
@@ -36,7 +36,7 @@ The data is heavily imbalanced, which the pipeline handles by undersampling the 
 
 **Ranking.** `Overall Score = 0.40 × ROC-AUC + 0.30 × F1 + 0.20 × Recall + 0.10 × Accuracy`. ROC-AUC weighs most as a threshold-independent measure; accuracy weighs least, since it misleads on imbalanced data.
 
-**Final training.** `Train_final_model.py` reads the winner from the ranking CSV, fits on a train split only, tunes the threshold on a held-out validation set the model never saw, then refits on train+validation for the deployed artifact while keeping that already-locked threshold. This keeps the threshold honest — tuning it on rows the model was fit on would inflate it.
+**Final training.** `train_final_model.py` reads the winner from the ranking CSV, fits on a train split only, tunes the threshold on a held-out validation set the model never saw, then refits on train+validation for the deployed artifact while keeping that already-locked threshold. This keeps the threshold honest — tuning it on rows the model was fit on would inflate it.
 
 ---
 
@@ -88,10 +88,10 @@ Retrain from scratch:
 
 ```bash
 python diabetes_model_comparison.py   # benchmark (long-running: 250 model fits)
-python Train_final_model.py           # train + save the final model
+python train_final_model.py           # train + save the final model
 ```
 
-`Train_final_model.py` accepts `--model`, `--seed`, `--val-size`, `--min-recall`, `--no-refit`, `--model-out`, and `--threshold-out`. Run it with `--help` for details.
+`train_final_model.py` accepts `--model`, `--seed`, `--val-size`, `--min-recall`, `--no-refit`, `--model-out`, and `--threshold-out`. Run it with `--help` for details.
 
 ---
 
