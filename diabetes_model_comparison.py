@@ -238,9 +238,6 @@ def create_balanced_sample(df, target, seed):
 
 # =========================================================
 # EVERYTHING BELOW ONLY RUNS WHEN THIS FILE IS EXECUTED DIRECTLY
-# (python diabetes_model_comparison.py), NOT when it is imported.
-# This is what makes it cheap for another script to import the
-# data/functions above without re-running the full 50-run benchmark.
 # =========================================================
 if __name__ == "__main__":
 
@@ -303,7 +300,7 @@ if __name__ == "__main__":
                 y_val,
                 y_val_prob,
                 minimum_recall=0.72
-            )#the best threshold is chosen over the validation set
+            )
 
             y_test_prob = model.predict_proba(X_test)[:, 1]
             y_test_pred = (y_test_prob >= best_threshold).astype(int)
@@ -367,7 +364,6 @@ if __name__ == "__main__":
     print("\nAverage Results Over 50 Runs With Standard Deviation:")
     print(summary_df)
 
-    # Cleaner terminal table: Mean ± SD
     clean_summary = pd.DataFrame()
 
     for metric in ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'ROC-AUC', 'Threshold']:
@@ -410,11 +406,6 @@ if __name__ == "__main__":
     # Recall is important because in diabetes prediction we care about catching diabetic cases.
     # Accuracy has a smaller weight because it can be misleading in imbalanced datasets.
 
-    #revisit
-    #ROC-AUC and Recall are weighted highest because they transfer more reliably from your
-    # balanced test evaluation to real-world imbalanced deployment; F1/Accuracy are downweighted
-    # because they partially reflect precision, which is sensitive to the class-balance mismatch
-    # between your test data and production data.
     model_means['Overall Score'] = (
         model_means['ROC-AUC'] * 0.40 +
         model_means['F1-Score'] * 0.30 +
@@ -446,10 +437,6 @@ if __name__ == "__main__":
     # 13. TRAIN & SAVE FINAL BEST MODEL (full balanced data)
     # =========================================================
 
-    #revisit
-    #traning the data on the wining model with no split(the validation
-    # set to find the best threshold is the same training data)
-
     print(f"\nTraining final version of best model: {best_model_name}")
 
     final_balanced_df = create_balanced_sample(df, target, seed=42)
@@ -460,16 +447,15 @@ if __name__ == "__main__":
     final_model = build_models()[best_model_name]
     final_model.fit(X_final, y_final)
 
-    # --- NEW: compute the threshold for THIS specific final model ---
     y_final_prob = final_model.predict_proba(X_final)[:, 1]
     final_threshold = find_best_threshold(y_final, y_final_prob, minimum_recall=0.72)
     print(f"Final threshold for {best_model_name}: {final_threshold}")
 
     joblib.dump(final_model, "best_diabetes_model.pkl")
-    joblib.dump(final_threshold, "best_threshold.pkl")  # --- NEW ---
+    joblib.dump(final_threshold, "best_threshold.pkl")  
 
     print("Saved: best_diabetes_model.pkl")
-    print("Saved: best_threshold.pkl")  # --- NEW ---
+    print("Saved: best_threshold.pkl")  
 
 
 
