@@ -11,19 +11,7 @@ Usage:
                                               # benchmark and produce
                                               # undersampling_50_runs_model_ranking.csv
     python train_final_model.py              # trains + saves the final model
-
-Options:
-    --model NAME        Force a specific model instead of reading the
-                         winner from the ranking CSV (e.g. "CatBoost").
-    --seed INT           Random seed for the balanced sample / split (default 42)
-    --val-size FLOAT     Fraction of the balanced sample held out for
-                          threshold tuning (default 0.2)
-    --min-recall FLOAT   Minimum recall required when picking the
-                          threshold (default 0.72, matches original)
-    --no-refit           Skip refitting on train+val after the threshold
-                          is chosen; keep the model fit on train only
-    --model-out PATH      Output path for the model .pkl
-    --threshold-out PATH  Output path for the threshold .pkl
+    
 """
 
 import argparse
