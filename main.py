@@ -18,7 +18,7 @@ model = joblib.load("best_diabetes_model_final.pkl")
 print("✅ Model loaded successfully")
 
 print("🔄 Loading threshold...")
-threshold = joblib.load("best_threshold_final.pkl")  # --- CHANGED ---
+threshold = joblib.load("best_threshold_final.pkl") 
 print(f"✅ Threshold loaded: {threshold}")
 
 # Exact feature order/list your training script produced
@@ -241,7 +241,7 @@ RANGE_FIELDS = {
     "PhysHlth": (0, 30),
 }
 
-MAX_ROWS = 5000  # adjust as needed
+MAX_ROWS = 5000  
 
 
 def validate_and_build_row(raw_row: dict, row_number: int):
